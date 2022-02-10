@@ -5,5 +5,16 @@ using namespace std;
 
 int main()
 {
+    int a, b = 2;
+    cin >> a;
+    while (a > 1 and b <= a){
+        if (a % b == 0){
+            while (a % b == 0){
+                cout << b << " ";
+                a = a / b;
+            }
+        }
+        b++;
+    }
     return 0;
 }
