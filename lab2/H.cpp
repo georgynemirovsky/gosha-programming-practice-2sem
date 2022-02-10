@@ -14,7 +14,7 @@ int main()
         a = a / 10;
     }
     if (b == c){
-        cout << '\n' << endl;
+        cout << 1 << endl;
     } else {
         cout << b << endl;
     }
