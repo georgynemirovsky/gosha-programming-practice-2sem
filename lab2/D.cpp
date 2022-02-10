@@ -9,7 +9,7 @@ int main()
     cin >> a;
     while (b != 0) {
         if (b % 2 == 0) {
-            if (b > a) {
+            if ((b > a) or (a % 2 != 0)) {
                 a = b;
             } else {
                 a = a;
@@ -19,6 +19,10 @@ int main()
         }
         cin >> b;
     }
-    cout << a << endl;
+    if (a % 2 != 0) {
+        cout << '\n' << endl;
+    } else {
+        cout << a << endl;
+    }
     return 0;
 }
