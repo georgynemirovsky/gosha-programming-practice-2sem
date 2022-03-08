@@ -30,8 +30,7 @@ void moving(int n, int (&loc)[20][20], int x, int y, int &c) {
             } else {
                 loc[x][y + 1] = 2;
                 loc[x][y] = 2;
-                c--;
-                c--;
+                c -= 2;
             }
         } else {
             loc[x][y] = 0;
@@ -132,8 +131,7 @@ void pointconcl(int (&loc)[20][20], int x, int y, int &c){
     }
  }
 
-int main()
-{
+int main(){
     ofstream file("data.txt");
     int const n = 20;
     int matr[n][n] = {0,0};
