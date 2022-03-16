@@ -5,32 +5,7 @@ using namespace std;
 
 float mean(float pdf[], long long int nomber)
 {
-    static long long int nom = 1;
-    if (nom >= nomber)
-    {
-        return pdf[0];
-    }
-    else
-    {
-        for (long long int i = 0; i < nomber; i += 2 * nom)
-        {
-            if (i + nom < nomber)
-            {
-                pdf[i] += pdf[i + nom];
-            }
-            else
-            {
-                int j = 1;
-                while (i + j < nomber)
-                {
-                    pdf[i] += pdf[i + j];
-                    j++;
-                }
-            }
-        }
-        nom *= 2;
-        return mean(pdf, nomber);
-    }
+    return 0;
 }
 int main()
 {

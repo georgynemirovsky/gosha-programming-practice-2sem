@@ -6,7 +6,11 @@ using namespace std;
 double mean(double pdf[], long long int nomber)
 {
     static long long int nom = 1;
-    while (nom < nomber)
+    if (nom >= nomber)
+    {
+        return pdf[0];
+    }
+    else
     {
         for (long long int i = 0; i < nomber; i += 2 * nom)
         {
@@ -25,8 +29,8 @@ double mean(double pdf[], long long int nomber)
             }
         }
         nom *= 2;
+        return mean(pdf, nomber);
     }
-    return pdf[0];
 }
 int main()
 {
