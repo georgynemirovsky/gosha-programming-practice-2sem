@@ -3,20 +3,19 @@
 
 using namespace std;
 
-double mean(double pdf[], long long int nomber)
+double mean(double pdf[], long long int nomber, long long int step)
 {
-    static long long int nom = 1;
-    if (nom >= nomber)
+    if (step >= nomber)
     {
         return pdf[0];
     }
     else
     {
-        for (long long int i = 0; i < nomber; i += 2 * nom)
+        for (long long int i = 0; i < nomber; i += 2 * step)
         {
-            if (i + nom < nomber)
+            if (i + step < nomber)
             {
-                pdf[i] += pdf[i + nom];
+                pdf[i] += pdf[i + step];
             }
             else
             {
@@ -28,8 +27,7 @@ double mean(double pdf[], long long int nomber)
                 }
             }
         }
-        nom *= 2;
-        return mean(pdf, nomber);
+        return mean(pdf, nomber, step * 2);
     }
 }
 int main()
@@ -55,7 +53,7 @@ int main()
         x = x + dv;
         pdf[i] = abs(x) * exp(- x * x / T) / sqrt(PI * T) * dv;
     }
-    cout << mean(pdf, n) << endl;
+    cout << mean(pdf, n, 1) << endl;
     delete [] pdf;
     return 0;
 }
