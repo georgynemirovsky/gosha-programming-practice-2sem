@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include<iomanip>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ int main()
 {
     float T = 0.f;
     cin >> T;
-    unsigned n = 100000;
+    unsigned n = 10000000;
     float PI = acos(-1.0);
     float x = 0.f, dv = 0.f;
     if (T >= 1)
@@ -39,7 +40,7 @@ int main()
         psi[i] = abs(x);
         pdf[i] = exp(- x * x / T) / sqrt(PI * T);
     }
-    cout << mean(psi, pdf, dv, n) << endl;
+    cout << setprecision(10) << mean(psi, pdf, dv, n) << endl;
     delete [] psi;
     delete [] pdf;
     return 0;

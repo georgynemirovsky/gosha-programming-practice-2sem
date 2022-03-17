@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -38,7 +39,7 @@ int main()
         x = x + dv;
         pdf[i] = abs(x) * exp(- x * x / T) / sqrt(PI * T) * dv;
     }
-    cout << kahan_sum(pdf, n) << endl;
+    cout << setprecision(10) << kahan_sum(pdf, n) << endl;
     delete [] pdf;
     return 0;
 }

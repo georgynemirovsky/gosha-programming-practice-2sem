@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ int main()
 {
     float T = 0.f;
     cin >> T;
-    long long int n = 1000;
+    long long int n = 1000000;
     float PI = acos(-1.0);
     float x = 0.f, dv = 0.f;
     if (T >= 1)
@@ -38,7 +39,7 @@ int main()
         psi[i] = abs(x);
         pdf[i] =exp(- x * x / T) / sqrt(PI * T);
     }
-    cout << FMA(psi, pdf, dv, n) << endl;
+    cout << setprecision(10) << FMA(psi, pdf, dv, n) << endl;
     delete [] pdf;
     return 0;
 }

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -34,7 +35,7 @@ int main()
 {
     float T = 0.f;
     cin >> T;
-    long long int n = 1000;
+    long long int n = 1000000;
     float PI = acos(-1.0);
     float x = 0.f, dv = 0.f;
     if (T >= 1)
@@ -53,7 +54,7 @@ int main()
         x = x + dv;
         pdf[i] = abs(x) * exp(- x * x / T) / sqrt(PI * T) * dv;
     }
-    cout << mean(pdf, n, 1) << endl;
+    cout << setprecision(10) << mean(pdf, n, 1) << endl;
     delete [] pdf;
     return 0;
 }
