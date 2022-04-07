@@ -38,15 +38,8 @@ int main()
     long long int n = 10000000;
     double PI = acos(-1.0);
     double x = 0.f, dv = 0.f;
-    if (T >= 1)
-    {
-        x = -T;
-        dv = 2 * T / n;
-    } else
-    {
-        x = -1 / sqrt(T);
-        dv = 2 / sqrt(T) / n;
-    }
+    x = -5 * sqrt(T);
+    dv = 10 * sqrt(T) / n;
     double *pdf = 0;
     pdf = new double[n];
     for (long long int i = 0; i < n; i++)
