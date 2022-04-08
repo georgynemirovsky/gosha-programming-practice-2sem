@@ -26,6 +26,21 @@ void add_node(Node** head_ptr, int value) {
 }
 
 
+void delete_by_value(Node** head_ptr, int value) {
+  Node *current = *head_ptr;
+  Node *prev = nullptr;
+  while (current != nullptr) {
+    if (current->field == value) {
+      break;
+    }
+    prev = current;
+    current = current->next;
+  }
+  prev->next = current->next;
+  delete current;
+}
+
+
 void pop(Node **head_ptr) {
     Node *current = *head_ptr;
     if (current->next == nullptr) {
@@ -121,6 +136,7 @@ void delete_list(Node** head_ptr) {
 int main() {
     int n = 0;
     int number = 0;
+    int value = 0;
     Node *head = nullptr;
 
 
@@ -156,7 +172,13 @@ int main() {
     print_list(&l);
 
 
-    cout << "Delete list";
+    cout << "Delete element by value\n";
+    cin >> value;
+    delete_by_value(&l, value);
+    print_list(&l);
+
+
+    cout << "Delete list" << endl;
     delete_list(&l);
     print_list(&l);
 
